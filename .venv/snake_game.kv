@@ -1,0 +1,40 @@
+<SnakeGame@BoxLayout>:
+    orientation: 'vertical'
+    spacing: 10
+    GamePanel:
+        id: _game_panel
+        game_area: _game_area
+        size_hint: 0.8, None
+        height: 40
+        pos_hint: {'center_x': 0.5}
+        Button:
+            id: _speed_down
+            text: "-"
+            size_hint: None, 1
+            width: 40
+            on_press: self.parent.speed_down(self)
+        Label:
+            id: _speed
+            size_hint: None, 1
+            width: 100
+            text: "speed: " + str(self.parent.speed)
+        Button:
+            id: _speed_up
+            text: "+"
+            size_hint: None, 1
+            width: 40
+            on_press: self.parent.speed_up(self)
+        Label:
+            id: _point
+            text: "point: " + str(self.parent.point)
+    GameArea:
+        id: _game_area
+        game_panel: _game_panel
+        cols: 16
+        size_hint: None, None
+        size: root.height - 50, root.height - 50
+        pos_hint: {'center_x': 0.5}
+
+
+
+
